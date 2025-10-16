@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ef4444">
+  <title>LogiTruck - Premium Logistics Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: { red: '#ef4444', dark: '#0a0a0b' } },
+          backgroundImage: { 'grid': 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 1px)' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+    }
+
+    /* Mobile menu styles */
+    .nav-links {
+      z-index: 1000;
+    }
+
+    .nav-links.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+    }
+
+    /* Hamburger animation */
+    .hamburger.active i {
+      transform: rotate(90deg);
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger i {
+      transition: transform 0.3s ease;
+    }
+
+    /* Enhanced animations and effects */
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(244, 63, 94, 0.05) 50%, rgba(0, 0, 0, 0.8) 100%);
+    }
+
+    .floating-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse-glow {
+      from {
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+      }
+
+      to {
+        box-shadow: 0 0 40px rgba(239, 68, 68, 0.6);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-spacing {
+      padding: 4rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .section-spacing {
+        padding: 5rem 0;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .section-spacing {
+        padding: 6rem 0;
+      }
+    }
+
+    /* Simple section dividers */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      margin: 3rem 0;
+    }
+
+    .simple-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.3), transparent);
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-gray-100 selection:bg-red-500/30">
+  <header class="fixed inset-x-0 top-0 z-50">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div
+        class="mt-4 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/60 border border-white/10 rounded-2xl">
+        <div class="flex items-center justify-between px-4 py-3">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <span
+              class="relative grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 text-white">
+              <i class="fas fa-truck"></i>
+              <span
+                class="absolute -inset-0.5 rounded-xl bg-gradient-to-br from-red-500/30 to-rose-600/30 blur-md -z-10"></span>
+            </span>
+            <div>
+              <h1 class="text-lg font-semibold tracking-tight">LogiTruck</h1>
+              <p class="text-[10px] uppercase tracking-widest text-white/60">Logistics</p>
+            </div>
+          </a>
+          <div class="hidden md:flex items-center gap-6">
+            <a href="index.html" class="text-sm text-white font-semibold">Home</a>
+            <a href="services.html" class="text-sm text-white/80 hover:text-white">Services</a>
+            <a href="about.html" class="text-sm text-white/80 hover:text-white">About</a>
+            <a href="fleet.html" class="text-sm text-white/80 hover:text-white">Our Fleet</a>
+            <a href="contact.html" class="text-sm text-white/80 hover:text-white">Contact</a>
+          </div>
+          <div class="hidden md:flex items-center gap-2">
+            <a href="partner.php"
+              class="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 border border-white/10 bg-white/5 active:translate-y-px transition">Become
+              a Partner</a>
+            <a href="contact.html"
+              class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-500 to-rose-600 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-red-500/25 hover:from-red-400 hover:to-rose-500 hover:shadow-red-500/40 hover:shadow-xl active:translate-y-px transition">
+              <i class="fas fa-paper-plane"></i>
+              Get a Quote
+            </a>
+          </div>
+          <button
+            class="hamburger md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 border border-white/10 text-white">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div
+          class="nav-links md:hidden absolute top-full left-0 right-0 mt-2 mx-4 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/60 border border-white/10 rounded-2xl opacity-0 invisible transform -translate-y-2 transition-all duration-300 ease-in-out">
+          <div class="px-4 py-3 space-y-3">
+            <a href="index.html" class="block text-sm text-white font-semibold py-2">Home</a>
+            <a href="services.html" class="block text-sm text-white/80 hover:text-white py-2">Services</a>
+            <a href="about.html" class="block text-sm text-white/80 hover:text-white py-2">About</a>
+            <a href="fleet.html" class="block text-sm text-white/80 hover:text-white py-2">Our Fleet</a>
+            <a href="contact.html" class="block text-sm text-white/80 hover:text-white py-2">Contact</a>
+            <div class="pt-3 border-t border-white/10 space-y-2">
+              <a href="partner.php" class="block text-sm text-white/80 hover:text-white py-2">Become a Partner</a>
+              <a href="contact.html"
+                class="block text-sm text-white py-2 bg-gradient-to-r from-red-500 to-rose-600 rounded-lg px-3 py-2 text-center">
+                <i class="fas fa-paper-plane mr-2"></i>Get a Quote
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Enhanced Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden mb-8">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute inset-0 bg-gradient-to-b from-black via-black to-black"></div>
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="absolute inset-0 bg-grid bg-[size:24px_24px]"></div>
+        <!-- Enhanced background elements -->
+        <div
+          class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] rounded-full bg-red-500/15 blur-[150px] floating-animation">
+        </div>
+        <div
+          class="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-rose-500/10 blur-[100px] floating-animation"
+          style="animation-delay: -2s;"></div>
+        <div
+          class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-red-400/8 blur-[80px] floating-animation"
+          style="animation-delay: -4s;"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="fade-in-up" style="animation-delay: 0.2s;">
+            <span
+              class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-2 text-sm text-white/90 backdrop-blur-sm mt-16">
+              <i class="fas fa-microchip text-red-400"></i>
+              Next‑Gen Logistics Platform
+            </span>
+          </div>
+
+          <h1 class="mt-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight fade-in-up"
+            style="animation-delay: 0.4s;">
+            <span class="bg-gradient-to-r from-white via-red-100 to-rose-200 bg-clip-text text-transparent">
+              Your Trusted Partner
+            </span>
+            <br>
+            <span class="bg-gradient-to-r from-red-400 via-red-500 to-rose-500 bg-clip-text text-transparent">
+              in Logistics
+            </span>
+          </h1>
+
+          <p class="mt-8 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed fade-in-up"
+            style="animation-delay: 0.6s;">
+            Delivering excellence across the nation with our modern fleet, cutting-edge technology, and unwavering
+            commitment to professional service.
+          </p>
+
+          <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 fade-in-up"
+            style="animation-delay: 0.8s;">
+            <a href="contact.html"
+              class="group inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-red-500 to-rose-600 px-8 py-4 text-base font-semibold text-white shadow-2xl shadow-red-500/30 hover:from-red-400 hover:to-rose-500 hover:shadow-red-500/50 hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 pulse-glow">
+              <i class="fas fa-paper-plane"></i>
+              Get a Quote
+              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <a href="services.html"
+              class="group inline-flex items-center gap-3 rounded-2xl px-8 py-4 text-base font-semibold text-white/90 hover:text-white hover:bg-white/10 active:scale-95 border border-white/20 bg-white/5 backdrop-blur-sm transition-all duration-300">
+              <i class="fas fa-truck"></i>
+              Our Services
+              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Enhanced Stats Section -->
+        <div class="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm p-10 text-center hover:border-red-500/40 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
+            <div
+              class="absolute -inset-px rounded-3xl bg-gradient-to-r from-red-500/20 to-rose-600/20 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500">
+            </div>
+            <div class="relative">
+              <div class="text-5xl text-red-400 mb-6"><i class="fas fa-truck"></i></div>
+              <div class="text-5xl font-extrabold text-white mb-3">200+</div>
+              <p class="text-base text-white/70 font-medium">Modern Vehicles</p>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm p-10 text-center hover:border-red-500/40 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
+            <div
+              class="absolute -inset-px rounded-3xl bg-gradient-to-r from-red-500/20 to-rose-600/20 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500">
+            </div>
+            <div class="relative">
+              <div class="text-5xl text-red-400 mb-6"><i class="fas fa-map-marked-alt"></i></div>
+              <div class="text-5xl font-extrabold text-white mb-3">50+</div>
+              <p class="text-base text-white/70 font-medium">States Covered</p>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm p-10 text-center hover:border-red-500/40 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
+            <div
+              class="absolute -inset-px rounded-3xl bg-gradient-to-r from-red-500/20 to-rose-600/20 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500">
+            </div>
+            <div class="relative">
+              <div class="text-5xl text-red-400 mb-6"><i class="fas fa-clock"></i></div>
+              <div class="text-5xl font-extrabold text-white mb-3">24/7</div>
+              <p class="text-base text-white/70 font-medium">Support Available</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simple Section Divider -->
+    <div class="simple-divider"></div>
+
+    <!-- Enhanced Why Choose LogiTruck Section -->
+    <section class="section-spacing relative">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-red-600/5 to-transparent"></div>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span
+            class="inline-flex items-center gap-2 rounded-full bg-red-500/10 border border-red-500/20 px-4 py-2 text-sm text-red-300">
+            <i class="fas fa-star"></i>
+            Why Choose Us
+          </span>
+          <h2 class="mt-6 text-4xl sm:text-5xl font-bold text-white">Why Choose LogiTruck</h2>
+          <p class="mt-4 text-lg text-white/70 max-w-2xl mx-auto">Experience the difference with our comprehensive
+            logistics solutions and unmatched service quality</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm p-8 transition-all duration-500 hover:-translate-y-2 hover:border-red-500/40 hover:bg-white/10">
+            <div
+              class="absolute -inset-px rounded-3xl bg-gradient-to-r from-red-500/20 to-rose-600/20 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500">
+            </div>
+            <div class="relative">
+              <div class="text-5xl text-red-400 mb-6"><i class="fas fa-truck"></i></div>
+              <h3 class="text-xl font-semibold text-white mb-3">Nationwide Delivery</h3>
+              <p class="text-white/70 leading-relaxed">Covering all major routes across the country with our extensive
+                network and strategic partnerships.</p>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm p-8 transition-all duration-500 hover:-translate-y-2 hover:border-red-500/40 hover:bg-white/10">
+            <div
+              class="absolute -inset-px rounded-3xl bg-gradient-to-r from-red-500/20 to-rose-600/20 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500">
+            </div>
+            <div class="relative">
+              <div class="text-5xl text-red-400 mb-6"><i class="fas fa-clock"></i></div>
+              <h3 class="text-xl font-semibold text-white mb-3">24/7 Service</h3>
+              <p class="text-white/70 leading-relaxed">Round-the-clock support for all your logistics needs with
+                dedicated customer service teams.</p>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm p-8 transition-all duration-500 hover:-translate-y-2 hover:border-red-500/40 hover:bg-white/10">
+            <div
+              class="absolute -inset-px rounded-3xl bg-gradient-to-r from-red-500/20 to-rose-600/20 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500">
+            </div>
+            <div class="relative">
+              <div class="text-5xl text-red-400 mb-6"><i class="fas fa-shield-alt"></i></div>
+              <h3 class="text-xl font-semibold text-white mb-3">Secure Transport</h3>
+              <p class="text-white/70 leading-relaxed">Advanced security systems and protocols ensuring your cargo's
+                safety throughout the journey.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simple Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Enhanced About Section -->
+    <section class="section-spacing relative">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          <div class="space-y-8">
+            <div>
+              <span
+                class="inline-flex items-center gap-2 rounded-full bg-red-500/10 border border-red-500/20 px-4 py-2 text-sm text-red-300">
+                <i class="fas fa-building"></i>
+                About LogiTruck
+              </span>
+              <h2 class="mt-6 text-4xl sm:text-5xl font-bold text-white">Your Partner in Logistics Excellence</h2>
+              <p class="mt-6 text-lg text-white/70 leading-relaxed">
+                With over 15 years of experience, we provide reliable and efficient transportation solutions for
+                businesses of all sizes. Our modern fleet and professional drivers ensure your cargo reaches its
+                destination safely and on time.
+              </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+                <i class="fas fa-check-circle text-red-400 text-xl"></i>
+                <span class="text-white/90 font-medium">Professional Drivers</span>
+              </div>
+              <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+                <i class="fas fa-check-circle text-red-400 text-xl"></i>
+                <span class="text-white/90 font-medium">Modern Fleet</span>
+              </div>
+              <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+                <i class="fas fa-check-circle text-red-400 text-xl"></i>
+                <span class="text-white/90 font-medium">Real-time Tracking</span>
+              </div>
+              <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+                <i class="fas fa-check-circle text-red-400 text-xl"></i>
+                <span class="text-white/90 font-medium">Nationwide Coverage</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="about.html"
+                class="group inline-flex items-center gap-3 rounded-xl px-6 py-3 text-sm font-semibold text-white/90 hover:text-white hover:bg-white/10 active:scale-95 border border-white/20 bg-white/5 backdrop-blur-sm transition-all duration-300">
+                <i class="fas fa-info-circle"></i>
+                Learn More
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+              </a>
+              <a href="contact.html"
+                class="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-red-500 to-rose-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/25 hover:from-red-400 hover:to-rose-500 hover:shadow-red-500/40 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
+                <i class="fas fa-phone"></i>
+                Contact Us
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="relative overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-sm">
+              <img class="h-full w-full object-cover aspect-[4/3]"
+                src="https://images.unsplash.com/photo-1591768793355-74d04bb6608f?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Truck on highway">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div
+                class="absolute bottom-6 right-6 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 text-white p-6 text-center shadow-2xl">
+                <div class="text-3xl font-bold leading-none">15+</div>
+                <div class="text-xs uppercase tracking-widest mt-1">Years Experience</div>
+              </div>
+            </div>
+            <!-- Decorative elements -->
+            <div class="absolute -top-4 -left-4 w-24 h-24 rounded-full bg-red-500/20 blur-xl"></div>
+            <div class="absolute -bottom-4 -right-4 w-32 h-32 rounded-full bg-rose-500/20 blur-xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simple Section Divider -->
+    <div class="simple-divider"></div>
+
+    <!-- Enhanced CTA Section -->
+    <section class="section-spacing relative">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          class="relative overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-r from-red-600/20 via-rose-600/20 to-red-600/20 backdrop-blur-sm">
+          <div class="absolute -inset-px rounded-3xl bg-gradient-to-r from-red-500/40 to-rose-600/40 blur-xl"></div>
+          <div class="relative p-8 sm:p-12 lg:p-16">
+            <div class="text-center max-w-3xl mx-auto">
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to Ship?</h2>
+              <p class="text-base text-white/80 mb-6 leading-relaxed">
+                Get in touch with us today for a customized logistics solution tailored to your business needs.
+              </p>
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="contact.html"
+                  class="group inline-flex items-center gap-2 rounded-2xl bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-red-50 hover:shadow-xl hover:shadow-red-500/20 hover:scale-105 active:scale-95 transition-all duration-300">
+                  <i class="fas fa-paper-plane text-red-500"></i>
+                  Contact Us
+                  <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="tel:+15551234567"
+                  class="group inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold text-white/90 hover:text-white hover:bg-white/10 active:scale-95 border border-white/20 bg-white/5 backdrop-blur-sm transition-all duration-300">
+                  <i class="fas fa-phone text-red-400"></i>
+                  Call Now
+                  <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Enhanced Footer -->
+  <footer class="relative border-t border-white/10 bg-gradient-to-b from-black via-black to-gray-900">
+    <div class="absolute inset-x-0 -top-20 h-20 bg-gradient-to-b from-red-600/10 to-transparent pointer-events-none">
+    </div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <span
+              class="grid place-items-center w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 text-white">
+              <i class="fas fa-truck text-lg"></i>
+            </span>
+            <div>
+              <h3 class="text-2xl font-bold text-white">LogiTruck</h3>
+              <p class="text-sm text-white/60">Premium Logistics Solutions</p>
+            </div>
+          </div>
+          <p class="text-white/70 leading-relaxed mb-6 max-w-md">
+            Your trusted partner in logistics and transportation solutions. We deliver excellence across the nation with
+            our modern fleet and professional service.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://www.facebook.com/" target="_blank"
+              class="w-10 h-10 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/" target="_blank"
+              class="w-10 h-10 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank"
+              class="w-10 h-10 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank"
+              class="w-10 h-10 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a class="text-white/70 hover:text-white transition-colors duration-300" href="index.html">Home</a></li>
+            <li><a class="text-white/70 hover:text-white transition-colors duration-300"
+                href="services.html">Services</a></li>
+            <li><a class="text-white/70 hover:text-white transition-colors duration-300" href="about.html">About Us</a>
+            </li>
+            <li><a class="text-white/70 hover:text-white transition-colors duration-300" href="fleet.html">Our Fleet</a>
+            </li>
+            <li><a class="text-white/70 hover:text-white transition-colors duration-300" href="contact.html">Contact</a>
+            </li>
+            <li><a class="text-white/70 hover:text-white transition-colors duration-300" href="partner.php">Partner
+                Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-6">Contact Info</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-phone text-red-400 mt-1"></i>
+              <div>
+                <div class="text-white/90 font-medium">Main Office</div>
+                <div class="text-white/70 text-sm">(555) 123-4567</div>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-envelope text-red-400 mt-1"></i>
+              <div>
+                <div class="text-white/90 font-medium">Email</div>
+                <div class="text-white/70 text-sm">info@logitruck.com</div>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt text-red-400 mt-1"></i>
+              <div>
+                <div class="text-white/90 font-medium">Address</div>
+                <div class="text-white/70 text-sm">2570 Millennium Dr,<br>Elgin, IL 60124</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-white/60">&copy; 2024 LogiTruck. All rights reserved.</p>
+        <div class="flex items-center gap-6 text-sm text-white/60">
+          <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+          <span>Built by <b class="text-red-400">xfaceit-byte</b></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
